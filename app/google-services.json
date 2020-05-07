@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "274632019477",
+    "firebase_url": "https://torguoapp.firebaseio.com",
+    "project_id": "torguoapp",
+    "storage_bucket": "torguoapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:274632019477:android:c0fd4cd7055f1819",
+        "android_client_info": {
+          "package_name": "com.myapp.theagrim.torguo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "274632019477-nvckphqbem697ddnsnl4outmfqemhi6i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.myapp.theagrim.torguo",
+            "certificate_hash": "07d7cd7198e6cd322c85f6b27f1e5409ea48f3fa"
+          }
+        },
+        {
+          "client_id": "274632019477-2gutih5hvu1cinb23jp8v1b6724u0cot.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByddXO12T3Q1Ye-G6gdAMj-kcQSNm2x1A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "274632019477-2gutih5hvu1cinb23jp8v1b6724u0cot.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
