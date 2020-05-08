@@ -4,27 +4,20 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:supportsRtl="true">
         <activity
             android:name=".LoginPage"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".HomePage"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
             android:name=".CreateUser"
             android:screenOrientation="portrait"
@@ -34,10 +27,25 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".OnlyOnce"
-            android:label="@string/title_activity_only_once"
+            android:name=".Register"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".Register" android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity
+            android:name=".HomePageActivity"
+            android:label="@string/title_activity_home_page"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ReDirectActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ProviderHomePage"
+            android:label="@string/title_activity_provider_home_page"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

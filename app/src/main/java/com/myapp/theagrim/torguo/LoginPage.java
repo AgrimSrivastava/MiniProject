@@ -87,6 +87,7 @@ public class LoginPage extends AppCompatActivity {
                 }
                 else{
                     Toast.makeText(LoginPage.this, "Login Krre ho Kya Bhai", Toast.LENGTH_SHORT).show();
+                    redirect();
                 }
 
             }
@@ -95,6 +96,7 @@ public class LoginPage extends AppCompatActivity {
 
     public void redirect(){
 //      start HomePage activity
+        startActivity(new Intent(LoginPage.this,ProviderHomePage.class));
         finish();
     }
 
