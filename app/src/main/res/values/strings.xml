@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Torguo</string>
+    <string name="mapbox">sk.eyJ1IjoiYWdyaW1zIiwiYSI6ImNrOXpkOXB4MDA2eHkzZ3FyeXRqZ3pxcGwifQ.EIaxLF0tqt2uAnCU854QUQ</string>
     <string name="user_login">USER LOGIN</string>
     <string name="email">Email</string>
     <string name="password">Password</string>

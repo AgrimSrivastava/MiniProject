@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -29,6 +30,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.mapbox.mapboxsdk.geometry.LatLng;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
@@ -43,6 +46,9 @@ public class HomePageActivity extends AppCompatActivity {
     private BottomNavigationView navigation;
     private TextView textView;
     private static final int LOCATION_PERMISSION=13;
+    Bundle bundle;
+    String lattitude;
+    String longitude;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -66,6 +72,10 @@ public class HomePageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
         textView = findViewById(R.id.locationTextView);
+        Intent intent=getIntent();
+        lattitude=intent.getStringExtra("Lattitude");
+        longitude=intent.getStringExtra("Longitude");
+
         setLocationInTextView();
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
@@ -95,8 +105,17 @@ public class HomePageActivity extends AppCompatActivity {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
 
-            if (position == 0)
-                return new Page1();
+            if (position == 0){
+                Page1 page1=new Page1();
+                bundle= new Bundle();
+//                Log.v("Torguo",lattitude+" "+longitude);
+                bundle.putString("Lattitude",lattitude);
+                bundle.putString("Longitude",longitude);
+
+                page1.setArguments(bundle);
+                return page1;
+            }
+
             else
                 return new Page2();
         }
@@ -114,7 +133,7 @@ public class HomePageActivity extends AppCompatActivity {
                 getSystemService(Context.LOCATION_SERVICE);
         LocationListener locationListener = new MyLocationListener();
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED ) {
-            Log.v("Torguo","insideSetLocation");
+
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 10, locationListener);
         }
         else{
@@ -123,47 +142,20 @@ public class HomePageActivity extends AppCompatActivity {
 
     }
 
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode,
-//                                           String[] permissions, int[] grantResults) {
-//        switch (requestCode) {
-//            case LOCATION_PERMISSION: {
-//
-//                if (grantResults.length > 0
-//                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//
-//                }
-//
-//
-//            }
-//        }
-//    }
 
     private class MyLocationListener implements LocationListener {
-
-
 
         @Override
         public void onLocationChanged(Location loc) {
 
-
-//            Toast.makeText(
-//                    getBaseContext(),
-//                    "Location changed: Lat: " + loc.getLatitude() + " Lng: "
-//                            + loc.getLongitude(), Toast.LENGTH_SHORT).show();
-
-
-            String longitude = "Longitude: " + loc.getLongitude();
-//            Log.v("Torguo", longitude);
-            String latitude = "Latitude: " + loc.getLatitude();
-//            Log.v("Torguo", latitude);
-
+            Log.v("Torguo","Inside Location");
             String cityName = null;
             Geocoder gcd = new Geocoder(getBaseContext(), Locale.getDefault());
             List<Address> addresses;
             try {
                 addresses = gcd.getFromLocation(loc.getLatitude(),
                         loc.getLongitude(), 1);
+
                 if (addresses.size() > 0) {
 
                     cityName = addresses.get(0).getLocality();
@@ -173,7 +165,9 @@ public class HomePageActivity extends AppCompatActivity {
             catch (IOException e) {
                 e.printStackTrace();
             }
-            String s = longitude + "\n" + latitude;
+
+//           double ans=(new LatLng(loc.getLatitude(),loc.getLongitude())).distanceTo(new LatLng(28.61001,77.23003));
+//            Log.v("Torguo",String.valueOf(ans));
 
             textView.setText(cityName);
         }
