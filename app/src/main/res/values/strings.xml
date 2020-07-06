@@ -48,5 +48,38 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_activity_provider_home_page">ProviderHomePage</string>
+    <string name="nosizerecyclerview">Sorry, no results found</string>
+    <string name="info">
+        It is an initiative to feed the needy people by utilizing the food left from the  you organise .Any amount of contribution is appreciated .
+        Get started with us .
+
+    </string>
+
+    <string name="largetext"> Testing thi xD </string>
+    <string name="title_activity_provider_options_drawer_actvity">ProviderOptionsDrawerActvity
+    </string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Sahyog App</string>
+    <string name="nav_header_subtitle">support.sahyogapp@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="send_button">Send Button</string>
+    <string name="first_text">Share your problem or ask any querry we will get back to you</string>
+    <string name="hello">Hello</string>
+    <string name="search_area">Enter Search Area(in KM)</string>
+    <string name="title_activity_further_detail_actvity">Settings</string>
+
+
+    <string name="confirm_details">Just confirm the details and you are done .We will create an event. Make sure the details are correct.</string>
+    <string name="forgot"> <u>Forgot Password?</u> </string>
+    <string name="signup"><u>SignUp</u></string>
+    <string name="login"><u>Login</u></string>
+    <string name="join_us"><u>Join us</u></string>
+    <string name="user_location_permission_explanation">This app needs location permissions to show its functionality.</string>
+    <string name="user_location_permission_not_granted">You didn\'t grant location permissions.</string>
+    <string name="demo_number">9837685185</string>
+    <string name="dream">Software Intern</string>
+    <string name="demo_address">61 Gandhi nagar Meerut</string>
+    <string name="demo_age">20</string>
 
 </resources>

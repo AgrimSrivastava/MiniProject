@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,29 +23,31 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.regex.Pattern;
+
 public class ForgotPassword extends AppCompatActivity {
 
-    AutoCompleteTextView textView;
     Button email_btn;
     TextView textView1;
+    EditText editText;
     FirebaseAuth firebaseAuth;
+    ProgressBar progressBar;
+
+    private void toggle(View v1,View v2){
+        v1.setVisibility(View.VISIBLE);
+        v2.setVisibility(View.INVISIBLE);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
-        textView=findViewById(R.id.email);
-        email_btn=findViewById(R.id.sendmail);
-        textView1=findViewById(R.id.back);
-        firebaseAuth= FirebaseAuth.getInstance();
-        String arr[]=createArray();
 
-        if(arr.length>=1){
-            Log.d("TourGo","arr present");
-            ArrayAdapter<String> adapter = new ArrayAdapter<>(ForgotPassword.this,android.R.layout.select_dialog_item, arr);
-            textView.setThreshold(1);
-            textView.setAdapter(adapter);
-        }
+        editText=findViewById(R.id.email);
+        firebaseAuth= FirebaseAuth.getInstance();
+        email_btn=findViewById(R.id.reset);
+        progressBar=findViewById(R.id.progress_circular);
+        toggle(email_btn,progressBar);
 
         textView1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,15 +58,16 @@ public class ForgotPassword extends AppCompatActivity {
         email_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email_= textView.getText().toString().trim();
+                toggle(progressBar,email_btn);
+                String email_= editText.getText().toString().trim();
 
-                if(email_.contains("@")&&!TextUtils.isEmpty(email_)) {
+                if(isValid(email_)) {
                     FirebaseAuth.getInstance().sendPasswordResetEmail(email_)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
+                                    toggle(email_btn,progressBar);
                                     if (task.isSuccessful()) {
-                                        Log.d("TourGo", "Email sent");
                                         AlertDialog.Builder alert = new AlertDialog.Builder(ForgotPassword.this);
                                         alert.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                             @Override
@@ -81,26 +86,24 @@ public class ForgotPassword extends AppCompatActivity {
                             });
                 }
                 else{
-                    Toast.makeText(ForgotPassword.this,"Check your email adrress",Toast.LENGTH_SHORT).show();
+                    toggle(email_btn,progressBar);
+                    editText.setError("Invalid e-mail address");
 
                 }
             }
         });
 
     }
+    static boolean isValid(String email)
+    {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
 
-    String[] createArray(){
-
-        SharedPreferences sharedPreferences=getSharedPreferences("data",0);
-        if(sharedPreferences!=null){
-            Log.d("TourGo","create");
-            int size=sharedPreferences.getInt("size",0);
-            String[] arr=new String[size];
-            for(int i=0;i<size;++i){
-                arr[i]=sharedPreferences.getString(String.valueOf(i),"empty");
-            }
-            return arr;
-        }
-        return null;
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null)
+            return false;
+        return pat.matcher(email).matches();
     }
 }

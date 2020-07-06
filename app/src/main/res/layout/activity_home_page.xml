@@ -4,16 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:orientation="vertical"
+    android:background="#fff"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomePageActivity"
     >
-    <TextView
-        android:id="@+id/locationTextView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="6"
-        />
+
+
+
     <android.support.v4.view.ViewPager
         android:layout_weight="85"
         android:id="@+id/Pager"
@@ -24,13 +22,14 @@
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
-        android:layout_weight="9"
+        android:layout_weight="7"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
         android:background="?android:attr/windowBackground"
-
+        app:itemTextColor="@color/bootom_nav_color"
+        app:itemIconTint="@color/bootom_nav_color"
         app:menu="@menu/navigationhome" />
 
 </LinearLayout>

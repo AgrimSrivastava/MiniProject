@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+   <android.support.constraint.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+       android:background="#fff"
+       >
+
+      <de.hdodenhof.circleimageview.CircleImageView
+          android:id="@+id/circleImageView"
+          android:layout_width="100dp"
+          android:layout_height="100dp"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="28dp"
+          android:src="@drawable/apple"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+      <LinearLayout
+          android:layout_width="267dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="8dp"
+          android:layout_marginTop="36dp"
+          android:layout_marginEnd="8dp"
+          android:orientation="horizontal"
+          android:padding="10dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="1.0"
+          app:layout_constraintStart_toEndOf="@+id/circleImageView"
+          app:layout_constraintTop_toTopOf="parent">
+
+         <LinearLayout
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="33"
+             android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/events"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:gravity="center"
+                android:textSize="25sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Events"
+                android:textSize="15sp" />
+
+         </LinearLayout>
+
+         <LinearLayout
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="33"
+             android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/reviews"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:gravity="center"
+                android:textSize="25sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Reviews"
+                android:textSize="15sp" />
+
+         </LinearLayout>
+
+         <LinearLayout
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="33"
+             android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/ratings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="20"
+                android:textSize="25sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+
+                android:text="Ratings"
+                android:textSize="15sp" />
+
+         </LinearLayout>
+
+
+      </LinearLayout>
+
+      <TextView
+          android:id="@+id/textView11"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:paddingTop="10dp"
+          android:paddingEnd="10dp"
+          android:paddingBottom="0dp"
+          android:text="Name"
+          android:textSize="20sp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/circleImageView" />
+
+      <TextView
+          android:id="@+id/textView9"
+          android:layout_width="243dp"
+          android:layout_height="36dp"
+          android:layout_marginStart="16dp"
+          android:text="Description"
+          android:textSize="15sp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+      <Button
+          android:id="@+id/editProfile"
+          android:layout_width="match_parent"
+          android:layout_height="38dp"
+          android:layout_marginStart="16dp"
+
+          android:layout_marginTop="16dp"
+          android:layout_marginEnd="16dp"
+          android:background="#ee204d"
+          android:text="Edit Profile"
+          android:textColor="#fff"
+          android:textSize="15sp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+      <android.support.design.widget.TabLayout
+          android:id="@+id/tabs"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="8dp"
+          android:layout_marginTop="12dp"
+          android:layout_marginEnd="8dp"
+
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/editProfile"
+          app:tabIndicatorColor="@color/colorPrimary"
+          app:tabSelectedTextColor="#ee204d"
+          app:tabTextColor="#000">
+
+
+         <android.support.design.widget.TabItem
+             android:id="@+id/tabItem"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Details"
+
+             />
+
+         <android.support.design.widget.TabItem
+             android:id="@+id/tabItem2"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Events"
+             />
+
+
+      </android.support.design.widget.TabLayout>
+
+      <android.support.v4.view.ViewPager
+          android:id="@+id/viewpager"
+          android:layout_width="match_parent"
+          android:layout_height="590dp"
+          android:layout_marginStart="8dp"
+          android:layout_marginTop="2dp"
+          android:layout_marginEnd="8dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/tabs">
+
+
+
+      </android.support.v4.view.ViewPager>
+
+       <ProgressBar
+           android:id="@+id/progress_circular"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginStart="8dp"
+           android:layout_marginTop="52dp"
+           android:layout_marginEnd="8dp"
+           android:indeterminateTint="#000"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="@+id/editProfile" />
+
+
+
+   </android.support.constraint.ConstraintLayout>
+
+</ScrollView>

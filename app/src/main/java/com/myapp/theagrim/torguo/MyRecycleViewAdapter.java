@@ -2,6 +2,8 @@ package com.myapp.theagrim.torguo;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Point;
+import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -10,21 +12,27 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.mapbox.mapboxsdk.geometry.LatLng;
 
 import java.util.ArrayList;
 
 public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdapter.ViewHolder> {
 
-    Context context;
+    private Context context;
     //Declare an ArrayList
     private ArrayList<Dataset> arrayList;
-    //make a constructor and initialise our array list with the list passed
-    //create a model class for receiving data
+    private ArrayList<String>  key;
+    LatLng source;
 
-    public MyRecycleViewAdapter(ArrayList<Dataset> arrayList){
+    private int arr[] ={R.drawable.foodimage1,R.drawable.foodimage2,R.drawable.foodimage3,R.drawable.foodimage4};
+
+    public MyRecycleViewAdapter(ArrayList<Dataset> arrayList,LatLng source){
         this.arrayList=arrayList;
+        this.source=source;
     }
 
     @NonNull
@@ -38,16 +46,24 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         final Dataset dataset=arrayList.get(i);
-        viewHolder.textView1.setText(String.valueOf(dataset.getLattitude()));
-        viewHolder.textView2.setText(String.valueOf(dataset.getLongitude()));
-        final int pos=i;
-        viewHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
+        viewHolder.name.setText(dataset.getName());
+        String lat=String.valueOf(dataset.getLattitude());
+        String lo=String.valueOf(dataset.getLongitude());
+        String s="Latitude- "+lat.substring(0,Math.min(4,lat.length()-1))+" Longitude- "+lo.substring(0,Math.min(4,lo.length()-1));
+        viewHolder.coordinates.setText(s);
+        viewHolder.date.setText(dataset.getDate());
+        viewHolder.time.setText(dataset.getTime());
+        String str=String.valueOf(source.distanceTo(new LatLng(dataset.getLattitude(),dataset.getLongitude())));
+        str=str.substring(0,Math.min(4,str.length()-1))+"m";
+        viewHolder.distance.setText(str);
+        viewHolder.randomimage.setImageResource(arr[i%4]);
+        final int val=i%4;
+        viewHolder.outerlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Toast.makeText(context,pos+"",Toast.LENGTH_SHORT).show();
-                Intent intent=new Intent(context,DirectiononMap.class);
-                intent.putExtra("Lattitude",String.valueOf(dataset.getLattitude()));
-                intent.putExtra("Longitude",String.valueOf(dataset.getLongitude()));
+                Intent intent=new Intent(context,Detail.class);
+                intent.putExtra("Key",dataset.getKey());
+                intent.putExtra("Image",String.valueOf(val));
                 context.startActivity(intent);
             }
         });
@@ -61,14 +77,26 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView textView1;
-        TextView textView2;
-        LinearLayout linearLayout;
+        TextView name;
+        TextView coordinates;
+        TextView date;
+        TextView time;
+        TextView distance;
+        ImageView randomimage;
+        RelativeLayout outerlayout;
+
+
+
         public ViewHolder(View view){
             super(view);
-            textView1=view.findViewById(R.id.lattitude);
-            textView2=view.findViewById(R.id.longitude);
-            linearLayout=view.findViewById(R.id.outerlayout);
+            name=view.findViewById(R.id.name);
+            coordinates=view.findViewById(R.id.coordinates);
+            date=view.findViewById(R.id.date);
+            time=view.findViewById(R.id.time);
+            distance=view.findViewById(R.id.distance);
+            randomimage=view.findViewById(R.id.thumbnail);
+            outerlayout=view.findViewById(R.id.outerlayout);
+
         }
     }
 

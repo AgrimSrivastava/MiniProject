@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mapbox="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="5dp"
+
+    >
+
+    <TextView
+        android:id="@+id/searcharea"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="70"
+        android:text="Default Search Range" />
+
+        <ImageButton
+            android:contentDescription="search"
+            android:layout_marginTop="4dp"
+            android:id="@+id/changebtn"
+            android:src="@drawable/ic_search_marker"
+            android:layout_weight="20"
+            android:background="#fff"
+            android:text="Change area"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+</LinearLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.mapbox.mapboxsdk.maps.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            mapbox:mapbox_cameraZoom="12"
+            mapbox:mapbox_cameraZoomMin="11"
+
+            />
+    </FrameLayout>
+
+</LinearLayout>

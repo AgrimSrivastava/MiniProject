@@ -7,6 +7,8 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +33,9 @@ import com.mapbox.mapboxsdk.style.layers.Property;
 import com.mapbox.mapboxsdk.style.layers.SymbolLayer;
 import com.mapbox.mapboxsdk.style.sources.GeoJsonSource;
 import com.mapbox.mapboxsdk.utils.BitmapUtils;
+import com.mapbox.services.android.navigation.ui.v5.NavigationLauncher;
+import com.mapbox.services.android.navigation.ui.v5.NavigationLauncherOptions;
+import com.mapbox.services.android.navigation.ui.v5.route.NavigationMapRoute;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -60,6 +65,11 @@ public class DirectiononMap extends AppCompatActivity {
     private Point origin;
     private Point destination;
     TextView distance;
+    Button button;
+    MapboxMap map;
+    private static final String TAG = "DirectionsActivity";
+    private NavigationMapRoute navigationMapRoute;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,10 +83,20 @@ public class DirectiononMap extends AppCompatActivity {
         final Double srclattitude=Double.parseDouble(sharedPreferences.getString("Lattitude","0"));
         final Double srclongitude=Double.parseDouble(sharedPreferences.getString("Longitude","0"));
 
-//        Log.d("Torguo",destlattitude.toString());
-//        Log.d("Torguo",destlongitude.toString());
-//        Log.d("Torguo",srclattitude.toString());
-//        Log.d("Torguo",srclongitude.toString());
+        button=findViewById(R.id.startButton);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                NavigationLauncherOptions options = NavigationLauncherOptions.builder()
+//                        .directionsRoute(currentRoute)
+//                        .shouldSimulateRoute(true)
+//                        .build();
+//                NavigationLauncher.startNavigation(DirectiononMap.this, options);
+                Toast.makeText(getApplicationContext(),"Start Navigation",Toast.LENGTH_LONG).show();
+            }
+        });
+
+
 
         distance=findViewById(R.id.distance);
 
@@ -85,6 +105,8 @@ public class DirectiononMap extends AppCompatActivity {
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(@NonNull final MapboxMap mapboxMap) {
+                map=mapboxMap;
+
                 mapboxMap.setStyle(Style.MAPBOX_STREETS, new Style.OnStyleLoaded() {
                     @Override
                     public void onStyleLoaded(@NonNull Style style) {
@@ -134,8 +156,8 @@ public class DirectiononMap extends AppCompatActivity {
         loadedMapStyle.addLayer(routeLayer);
 
 // Add the red marker icon image to the map
-//        loadedMapStyle.addImage(RED_PIN_ICON_ID, BitmapUtils.getBitmapFromDrawable(
-//                getResources().getDrawable(R.drawable.red_marker)));
+        loadedMapStyle.addImage(RED_PIN_ICON_ID, BitmapUtils.getBitmapFromDrawable(
+                getResources().getDrawable(R.drawable.ic_red_marker)));
 
 // Add the red marker icon SymbolLayer to the map
         loadedMapStyle.addLayer(new SymbolLayer(ICON_LAYER_ID, ICON_SOURCE_ID).withProperties(
@@ -160,9 +182,10 @@ public class DirectiononMap extends AppCompatActivity {
                 if (response.body() == null) {
                     return;
                 } else if (response.body().routes().size() < 1) {
-                    Log.d("Torguo","No routes found");
+                    Toast.makeText(DirectiononMap.this, "NO route fund", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                
 
                 currentRoute = response.body().routes().get(0);
 
@@ -178,6 +201,7 @@ public class DirectiononMap extends AppCompatActivity {
                             if (source != null) {
                                 source.setGeoJson(LineString.fromPolyline(currentRoute.geometry(), PRECISION_6));
                             }
+
                         }
                     });
                 }

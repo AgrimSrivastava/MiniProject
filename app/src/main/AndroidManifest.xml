@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.myapp.theagrim.torguo">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -47,7 +48,19 @@
             android:label="@string/title_activity_provider_home_page"
             android:theme="@style/AppTheme" />
         <activity android:name=".Detail" />
-        <activity android:name=".DirectiononMap"></activity>
+        <activity android:name=".DirectiononMap" />
+        <activity
+            android:name=".ProviderOptionsDrawerActvity"
+            android:label="@string/title_activity_provider_options_drawer_actvity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".FoodOrganiseActivity" />
+        <activity android:name=".LocatePeopleActivity" />
+        <activity android:name=".MessageAdmin" />
+        <activity android:name=".FurtherDetailActivity" />
+        <activity android:name=".EditProfile" />
+        <activity android:name=".ChooseProfile" />
+        <activity android:name=".Navigation" />
+        <activity android:name=".EventDetails" />
     </application>
 
 </manifest>

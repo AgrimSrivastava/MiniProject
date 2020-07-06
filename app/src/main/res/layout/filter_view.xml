@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20sp"
+    >
+    <LinearLayout
+        android:layout_weight="50"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="20sp"
+        >
+
+        <TextView
+            android:text="Distance(in KM)"
+            android:textSize="17sp"
+            android:layout_width="0dp"
+            android:layout_weight="40"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/filtervalue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="60" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/filterbutton"
+        android:layout_weight="50"
+        android:textColor="#fff"
+        android:textSize="17sp"
+        android:text="APPLY FILTER"
+        android:background="@drawable/btn_bg1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+
+
+</LinearLayout>

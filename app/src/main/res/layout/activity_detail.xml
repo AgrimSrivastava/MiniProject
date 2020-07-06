@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Detail">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:fitsSystemWindows="true"
+        >
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleTextAppearance="@android:color/transparent"
+            android:fitsSystemWindows="true"
+            >
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:background="#ee204d"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title="Event Information"
+                app:layout_collapseMode="pin"
+                />
+
+            <ImageView
+                android:id="@+id/imageview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/foodimage2"
+                app:layout_collapseMode="parallax" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RandomImage"
+                android:textColor="#000"
+                android:layout_gravity="end|bottom"
+                android:layout_marginBottom="2dp"
+                />
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardUseCompatPadding="true"
+            app:cardElevation="5dp"
+
+            >
+
+            <android.support.design.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                >
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/showonmap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|bottom"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="30dp"
+                    android:backgroundTint="#fff"
+                    android:src="@drawable/ic_show_on_map"
+                    app:borderWidth="0dp"
+                    app:elevation="10dp" />
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_layout_background"
+                    android:orientation="vertical"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        >
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_red_marker"
+                            android:padding="5dp"
+                            />
+                        <TextView
+                            android:id="@+id/latitude"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Latitude- 12.421"
+                            android:fontFamily="@font/luckiest_guy"
+                            android:textSize="15sp"
+                            android:layout_marginStart="5dp"
+                            android:textColor="#000"
+                            />
+
+                        <TextView
+                            android:id="@+id/longitude"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Longitude- 21.423"
+                            android:fontFamily="@font/luckiest_guy"
+                            android:textColor="#000"
+                            android:textSize="15sp"
+                            android:layout_marginStart="10dp"
+                            />
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:id="@+id/date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:fontFamily="@font/luckiest_guy"
+                            android:text="Date- 20/10/1999"
+                            android:textSize="15sp"
+                            android:layout_marginStart="10dp"
+                            android:textColor="#000"
+                            />
+
+                        <TextView
+                            android:id="@+id/time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:text="Time- 12:20"
+                            android:fontFamily="@font/luckiest_guy"
+                            android:layout_alignParentEnd="true"
+                            android:textColor="#000"
+                            android:textSize="15sp"
+                            />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20sp"
+                        android:layout_marginStart="10sp"
+                        android:layout_marginEnd="10sp"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Location Details"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/rokkitt"
+                            android:textColor="#ee204d"
+                            />
+
+                        <View
+                            android:layout_gravity="center"
+                            android:layout_marginStart="5dp"
+                            android:background="#ee204d"
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"/>
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="30dp"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="20"
+                            android:text="Locality"
+                            android:textColor="#000"
+                            android:fontFamily="@font/luckiest_guy"
+                            android:textSize="17sp" />
+
+
+
+                        <TextView
+                            android:id="@+id/locality"
+                            android:layout_width="0dp"
+                            android:textSize="17sp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="50"
+                            android:paddingStart="10dp"
+
+                            android:text="Gandhi Nagar"
+                            />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="30dp"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="20"
+                            android:text="Landmark"
+                            android:textColor="#000"
+                            android:fontFamily="@font/luckiest_guy"
+                            android:textSize="17sp" />
+
+                        <TextView
+                            android:id="@+id/landmark"
+                            android:layout_width="0dp"
+                            android:textSize="17sp"
+                            android:text="Nandan Cinema Hall"
+                            android:paddingStart="10dp"
+
+                            android:layout_height="match_parent"
+                            android:layout_weight="50" />
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="30dp"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="20"
+                            android:text="City"
+                            android:textColor="#000"
+                            android:fontFamily="@font/luckiest_guy"
+                            android:textSize="17sp" />
+
+                        <TextView
+                            android:id="@+id/city"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="17sp"
+                            android:text="Meerut"
+                            android:paddingStart="10dp"
+
+                            android:layout_weight="50" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="30dp"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="20"
+                            android:text="State"
+                            android:textColor="#000"
+                            android:fontFamily="@font/luckiest_guy"
+                            android:textSize="17sp" />
+
+                        <TextView
+                            android:id="@+id/state"
+                            android:layout_width="0dp"
+                            android:textSize="17sp"
+                            android:text="Uttar Pradesh"
+                            android:paddingStart="10dp"
+
+                            android:layout_height="match_parent"
+                            android:layout_weight="50" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20sp"
+                        android:layout_marginStart="10sp"
+                        android:layout_marginEnd="10sp"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Event Details"
+                            android:fontFamily="@font/rokkitt"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="#ee204d"
+                            />
+
+                        <View
+                            android:layout_gravity="center"
+                            android:layout_marginStart="5dp"
+                            android:background="#ee204d"
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="30dp"
+                        android:orientation="horizontal"
+
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="30"
+                            android:text="Type Of Food"
+                            android:textColor="#000"
+                            android:fontFamily="@font/luckiest_guy"
+                            android:textSize="17sp" />
+
+
+
+                        <TextView
+                            android:id="@+id/typeof"
+                            android:layout_width="0dp"
+                            android:textSize="17sp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="50"
+                            android:paddingStart="10dp"
+                            android:text="Not specified"
+                            />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="30dp"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="30"
+                            android:text="Max People"
+                            android:textColor="#000"
+                            android:fontFamily="@font/luckiest_guy"
+                            android:textSize="17sp" />
+
+
+
+                        <TextView
+                            android:id="@+id/val"
+                            android:layout_width="0dp"
+                            android:textSize="17sp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="50"
+                            android:paddingStart="10dp"
+                            android:text="20"
+                            />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="30dp"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="20"
+                            android:text="Status"
+                            android:textColor="#000"
+                            android:fontFamily="@font/luckiest_guy"
+                            android:textSize="17sp" />
+
+                        <CheckBox
+                            android:id="@+id/confirm"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Confirm"
+                            android:textSize="17sp"
+                            android:checked="true"
+                            android:clickable="false"
+                            android:buttonTint="@color/colorPrimary"
+                            />
+
+                        <CheckBox
+                            android:id="@+id/tentative"
+                            android:layout_marginStart="50dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tentative"
+                            android:textSize="17sp"
+                            android:clickable="false"
+                            android:buttonTint="@color/colorPrimary"
+                            />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="30dp"
+                        android:layout_marginBottom="80dp"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="20"
+                            android:textColor="#000"
+                            android:fontFamily="@font/luckiest_guy"
+                            android:text="Cutlery"
+                            android:textSize="17sp" />
+
+                        <CheckBox
+                            android:id="@+id/yes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/colorPrimary"
+                            android:checked="true"
+                            android:paddingEnd="35dp"
+                            android:text="Yes"
+                            android:clickable="false"
+                            android:textSize="17sp" />
+
+                        <CheckBox
+                            android:id="@+id/no"
+                            android:layout_marginStart="50dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="No"
+                            android:paddingEnd="35dp"
+                            android:layout_marginEnd="10dp"
+                            android:clickable="false"
+                            android:textSize="17sp"
+                            android:buttonTint="@color/colorPrimary"
+                            />
+
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/register"
+                    android:layout_width="212dp"
+                    android:layout_height="38dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="25dp"
+                    android:background="#ee204d"
+                    android:text="Register"
+                    android:textColor="#fff" />
+
+
+            </android.support.design.widget.CoordinatorLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+
+</android.support.design.widget.CoordinatorLayout>

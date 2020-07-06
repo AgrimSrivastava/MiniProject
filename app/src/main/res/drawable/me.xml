@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid
+        android:color="#ff416c"/>
+
+    <corners android:radius="10dp"/>
+    <!--  TO choose between -->
+  <!--  <gradient
+        android:startColor="#ff416c"
+        android:endColor="#ff4b2b"
+        android:type="linear"
+        />
+        -->
+    <!--
+        <gradient
+        android:startColor="#eb3349"
+        android:endColor="#f45c43"
+        android:type="linear"
+        />
+    -->
+
+</shape>

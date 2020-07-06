@@ -1,22 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:id="@+id/outerlayout"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:clipToPadding="false"
+    android:padding="5dp">
 
-    <TextView
-        android:id="@+id/lattitude"
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="50"
-        />
+        android:layout_height="wrap_content"
+        app:cardElevation="10dp"
+        app:cardUseCompatPadding="false"
+        >
 
-    <TextView
-        android:id="@+id/longitude"
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="50" />
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:id="@+id/outerlayout"
+        >
 
-</LinearLayout>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/thumbnail"
+            android:layout_width="90dp"
+            android:layout_height="80dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/activity_padding"
+            android:src="@drawable/foodimage4"
+            />
+
+        <TextView
+
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textSize="18sp"
+            android:text="Agrim Srivastava"
+            android:fontFamily="@font/luckiest_guy"
+            android:textColor="#828282"
+            android:paddingBottom="5dp"
+            android:layout_marginBottom="2dp"
+            android:layout_toRightOf="@id/thumbnail" />
+
+        <TextView
+            android:id="@+id/coordinates"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:text="Coordinates"
+            android:textColor="#000"
+            android:layout_marginBottom="6dp"
+            android:layout_below="@id/name"
+            android:layout_toRightOf="@id/thumbnail"
+            android:textSize="15sp"
+             />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/thumbnail"
+            android:layout_below="@+id/coordinates"
+            android:layout_centerHorizontal="true"
+
+            android:layout_marginTop="0dp"
+                android:background="#fff"
+            android:orientation="vertical">
+
+
+            <View
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/placeholder_bg"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="0dp"
+                    android:layout_weight="33"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Date "
+                    android:textSize="15sp"
+                    android:textColor="#ee204d"
+                    />
+
+                <TextView
+                    android:id="@+id/time"
+                    android:textColor="#3092ee"
+                    android:layout_width="0dp"
+                    android:layout_weight="33"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:text="Time"
+                    />
+
+                <TextView
+                    android:id="@+id/distance"
+                    android:layout_width="0dp"
+                    android:layout_weight="33"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:text="Distance"
+                    />
+
+
+
+            </LinearLayout>
+
+
+
+
+
+
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</android.support.constraint.ConstraintLayout>
