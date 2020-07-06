@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fff"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="40sp"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pesonnal Details"
+            android:textStyle="bold"
+            android:textColor="#000"
+            />
+
+        <View
+            android:layout_gravity="center"
+            android:layout_marginStart="5dp"
+            android:background="#ee204d"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"/>
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20sp"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="40"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="#000"
+            android:text="Name"
+            android:fontFamily="@font/luckiest_guy"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_weight="70"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Agrim"
+            android:fontFamily="@font/rokkitt"
+            android:background="@drawable/outline_for_textview_diff"
+            android:textSize="17sp"
+            android:textColor="#000"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5sp"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        >
+
+        <TextView
+            android:textColor="#000"
+            android:layout_width="0dp"
+            android:layout_weight="40"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Age"
+            android:fontFamily="@font/luckiest_guy"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:id="@+id/age"
+            android:layout_width="0dp"
+            android:layout_weight="70"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/demo_age"
+            android:textSize="17sp"
+            android:background="@drawable/outline_for_textview_diff"
+            android:textColor="#000"
+            android:fontFamily="@font/rokkitt"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5sp"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        >
+
+        <TextView
+            android:textColor="#000"
+            android:layout_width="0dp"
+            android:layout_weight="40"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/luckiest_guy"
+            android:padding="10dp"
+            android:text="Address"
+
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="0dp"
+            android:layout_weight="70"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/demo_address"
+            android:textSize="17sp"
+            android:background="@drawable/outline_for_textview_diff"
+            android:textColor="#000"
+            android:fontFamily="@font/rokkitt"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5sp"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        >
+
+        <TextView
+            android:textColor="#000"
+            android:layout_width="0dp"
+            android:layout_weight="40"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Occupation"
+            android:fontFamily="@font/luckiest_guy"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:id="@+id/occupation"
+            android:layout_width="0dp"
+            android:layout_weight="70"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/dream"
+            android:textSize="17sp"
+            android:background="@drawable/outline_for_textview_diff"
+            android:textColor="#000"
+            android:fontFamily="@font/rokkitt"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5sp"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        >
+
+        <TextView
+            android:textColor="#000"
+            android:layout_width="0dp"
+            android:layout_weight="40"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Contact"
+            android:fontFamily="@font/luckiest_guy"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:id="@+id/contact"
+            android:layout_width="0dp"
+            android:layout_weight="70"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/demo_number"
+            android:textSize="17sp"
+            android:background="@drawable/outline_for_textview_diff"
+            android:textColor="#000"
+            android:fontFamily="@font/rokkitt"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="40sp"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Events Info"
+            android:textColor="#000"
+            android:textStyle="bold"
+            />
+
+        <View
+            android:layout_gravity="center"
+            android:layout_marginStart="5dp"
+            android:background="#ee204d"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20sp"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        >
+
+        <TextView
+            android:textColor="#000"
+            android:layout_width="0dp"
+            android:layout_weight="40"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Events"
+            android:fontFamily="@font/luckiest_guy"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:id="@+id/events"
+            android:layout_width="0dp"
+            android:layout_weight="70"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="10"
+            android:textSize="17sp"
+            android:background="@drawable/outline_for_textview_diff"
+            android:textColor="#000"
+            android:fontFamily="@font/rokkitt"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5sp"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        >
+
+        <TextView
+            android:textColor="#000"
+            android:layout_width="0dp"
+            android:layout_weight="40"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Rating"
+            android:fontFamily="@font/luckiest_guy"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:id="@+id/ratings"
+            android:layout_width="0dp"
+            android:layout_weight="70"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="5"
+            android:background="@drawable/outline_for_textview_diff"
+            android:textColor="#000"
+            android:fontFamily="@font/rokkitt"
+            android:textSize="17sp"
+            />
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+</LinearLayout>
