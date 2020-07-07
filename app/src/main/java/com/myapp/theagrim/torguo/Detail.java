@@ -2,6 +2,7 @@ package com.myapp.theagrim.torguo;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.Image;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
@@ -22,6 +24,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import static com.google.android.gms.common.internal.safeparcel.SafeParcelable.NULL;
+
 public class Detail extends AppCompatActivity {
 
     TextView t1,t2,t3,t4,t5,t6,t7,t8,t9,t10;
@@ -29,6 +33,7 @@ public class Detail extends AppCompatActivity {
     Button register;
     Dataset ds=null;
     android.support.v7.widget.Toolbar toolbar;
+    ProgressBar progressBar;
     private int arr[] ={R.drawable.foodimage1,R.drawable.foodimage2,R.drawable.foodimage3,R.drawable.foodimage4};
     @Override
     @TargetApi(21)
@@ -61,8 +66,41 @@ public class Detail extends AppCompatActivity {
         cb3=findViewById(R.id.yes);
         cb4=findViewById(R.id.no);
         register=findViewById(R.id.register);
-        register.setVisibility(View.INVISIBLE);
+        progressBar=findViewById(R.id.progress_circular);
+        progressBar.setVisibility(View.INVISIBLE);
         //IMPLEMENT REMIND ME
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences sharedPreferences= getSharedPreferences("ForUser",MODE_APPEND);
+                String s=sharedPreferences.getString("alpha",NULL);
+                final DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference().child("Users").child(s).child("Registered").child(ds.getKey());
+                register.setVisibility(View.INVISIBLE);
+
+                progressBar.setVisibility(View.VISIBLE);
+                databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.exists()){
+                            Toast.makeText(getBaseContext(),"Already Registered",Toast.LENGTH_LONG).show();
+                        }
+                        else{
+                            Toast.makeText(getBaseContext(),"Registered Successfully",Toast.LENGTH_LONG).show();
+
+                            databaseReference.setValue(ds);
+                        }
+                        progressBar.setVisibility(View.INVISIBLE);
+                        register.setVisibility(View.VISIBLE);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
+            }
+        });
 
         FloatingActionButton fab=findViewById(R.id.showonmap);
         fab.setOnClickListener(new View.OnClickListener() {

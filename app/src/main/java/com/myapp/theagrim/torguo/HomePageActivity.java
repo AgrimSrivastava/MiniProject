@@ -37,6 +37,8 @@ public class HomePageActivity extends AppCompatActivity {
     String lattitude;
     String longitude;
     Page1 page1=null;
+    Page5 page5=null;
+    String key;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -49,6 +51,9 @@ public class HomePageActivity extends AppCompatActivity {
                     return true;
                 case R.id.navigation_dashboard:
                     mViewPager.setCurrentItem(1, true);
+                    return true;
+                case R.id.navigation_events:
+                    mViewPager.setCurrentItem(2,true);
                     return true;
             }
             return false;
@@ -73,6 +78,7 @@ public class HomePageActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.Pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+        mViewPager.setOffscreenPageLimit(2);
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int i, float v, int i1) {
@@ -86,6 +92,10 @@ public class HomePageActivity extends AppCompatActivity {
                     return;
                 }
 
+                else if(i==2){
+                    navigation.setSelectedItemId(R.id.navigation_events);
+                    return;
+                }
                 navigation.setSelectedItemId(R.id.navigation_home);
 
             }
@@ -99,7 +109,9 @@ public class HomePageActivity extends AppCompatActivity {
         navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.getMenu().findItem(R.id.navigation_home).setChecked(true);
+
         getSupportActionBar().hide();
+
 
 
 
@@ -129,14 +141,19 @@ public class HomePageActivity extends AppCompatActivity {
                 return page1;
             }
 
-            else
+            else if(position==1)
                 return new Page2();
+
+
+            page5=new Page5();
+            page5.key=key;
+            return page5;
         }
 
         @Override
         public int getCount() {
-            // Show 2 total pages.
-            return 2;
+            // Show 3 total pages.
+            return 3;
         }
     }
 
@@ -154,7 +171,7 @@ public class HomePageActivity extends AppCompatActivity {
 
     private void commitUser(){
         SharedPreferences sharedPreferences= getSharedPreferences("ForUser",MODE_APPEND);
-        String key=sharedPreferences.getString("alpha",NULL);
+        key=sharedPreferences.getString("alpha",NULL);
         if(key.equals(NULL)){
             SharedPreferences.Editor editor= sharedPreferences.edit();
             editor.putString("alpha",key=getSaltString());
@@ -162,7 +179,7 @@ public class HomePageActivity extends AppCompatActivity {
         }
         DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference("Users").child(key);
         MyUsers myUsers=new MyUsers(lattitude,longitude);
-        databaseReference.push().setValue(myUsers);
+        databaseReference.child("Location").setValue(myUsers);
     }
 
     @Override
